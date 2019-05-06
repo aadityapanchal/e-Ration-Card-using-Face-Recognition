@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.cls1
+		{
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 65%;
+			/*background-color: rgb(240,248,255);*/
+			background-color: rgb(255,239,213);
+		}
+		.cls3{
+			position: absolute;
+			top: 0;
+			left: 65%;
+			height: 100%;
+			width: 100%;
+			background-color: rgb(250,218,185);
+		}
+		.cls2
+		{
+			position: relative;
+			left: 20%;
+			top: 100px;
+			width: 60%;
+			height: 500px;
+			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4), 0 12px 40px 0 rgba(0,0,0,0.1);
+			/*background-color: rgb(240,248,255);*/
+			background-color: rgb(40,40,40);
+			color: white;
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<body>
+	{{User.username}}
+	<div class="cls1">
+	</div>
+	<div class="cls3"></div>
+		<div class="cls2">
+			<h1 align="center" style="position: relative;top: 20px;"><u>Application Form For Leave</u></h1>
+			<div style="position: relative; left: 8%; top: 30px;">
+
+				Enrolment No. <span style="position: relative; left: 5%;">:</span><input type="text" name="Enrollment" value="{{User.username}}" style="position: relative;left: 15%;"> <br> <br>
+				Name  <span style="position: relative; left: 12.7%;">:</span><input type="text" name="Name" style="position: relative;left: 22.7%;"> <br> <br>
+				Reason For Leave
+				 <span style="position: relative; left: 2%;">:</span><input type="text" name="Reason" style="position: relative;left: 12%;"> <br> <br>
+				 Document <span style="position: relative; left: 9%;">:</span><input type="file" name="file" style="position: relative;left: 18.7%;"> <br> <br>
+				 Date <span style="position: relative; left: 13.7%;">:</span> 
+				 <span style="position: relative;left: 23.3%;">From :</span><input type="Date" name="from" style="position: relative;left: 25%;">
+				 <br> <br>
+				  <span style="position: relative;left: 29%;">To</span>
+				  <span style="position: relative;left: 31.7%;">:</span>
+				  <input type="Date" name="from" style="position: relative;left: 32.8%;">
+			</div> <br> <br>
+			<p align="center">
+				 <button>Submit</button>	
+			</p>
+		</div>
+	</div>
+</body>
+</html>

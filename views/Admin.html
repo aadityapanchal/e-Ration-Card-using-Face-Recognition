@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display Webcam Stream</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<style>
+#af, #as, #ss {
+  position: absolute;
+  top: 600px;
+}
+
+#af {
+  left: 350px;
+}
+#as {
+  left: 900px;
+}
+
+#ss {
+  left: 615px;
+}
+h1 {
+  text-align: center;
+}
+#container {
+	margin: 0px auto;
+	width: 500px;
+	height: 375px;
+	/* border: 10px #333 solid; */
+}
+#videoElement {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+}
+</style>
+</head>
+<div class="jumbotron">
+<h1>Welcome Admin</h1>
+
+  <div id="container">
+    <video src="rtsp://admin:Admin@123@192.168.1.100:554/Streaming/Channels/101" autoplay="true" id="videoElement">
+      Your browser does not support the VIDEO tag and/or RTP streams.
+    </video>
+  </div>
+
+<button class="btn btn-primary" id="af" onclick="addfaculty()">Add Faculty</button></br>
+<button class="btn btn-primary" id="as" onclick="addstudent()">Add Student</button>
+<form action="pythonrun" method="post">
+    <button class="btn btn-success" id="ss">Scan a student</button>
+</form>
+</div>
+
+<form style="display:none;" action="admin/addfaculty" method="post" id="addfaculty" >
+<p><input type="text" name="username" placeholder="Enter faculty name"></p>
+<p><input type="text" name="password" placeholder="Enter desired password"></p>
+<button>Add</button>
+
+	</form>
+
+	<form style="display:none;" action="admin/addstudent" method="post" id="addstudent" >
+<p><input type="text" name="username" placeholder="Enter enrollment no"></p>
+<p><input type="text" name="password" placeholder="Enter desired password"></p>
+<button>Add</button>
+
+	</form>
+	<script>
+
+var video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+
+	function addfaculty() {
+
+		
+  var x = document.getElementById("addfaculty");
+  var y = document.getElementById("addstudent");
+   if (y.style.display === "block") {
+    y.style.display = "none";
+  }
+
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function addstudent() {
+		
+  var w = document.getElementById("addstudent");
+  var z = document.getElementById("addfaculty")
+
+   if (z.style.display === "block") {
+    z.style.display = "none";
+  }
+  if (w.style.display === "none") {
+    w.style.display = "block";
+  } else {
+    w.style.display = "none";
+  }
+}
+
+</script>
+
+
+

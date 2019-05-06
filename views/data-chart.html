@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Attendance</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+    <style>
+       
+        .canvas{
+
+width:70% !important;
+height:600px !important;
+
+}
+body{
+    background-color: white;
+}
+    </style>
+</head>
+
+<body>
+    <div class="canvas">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script>
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var json = "{{json}}"      
+        console.log("{{labels}}");
+        console.log("{{counts}}");
+        
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: "{{labels}}".split(','),
+                datasets: [{
+                    label: 'Attendance',
+                    data: [{{counts}}],
+                    backgroundColor: [ 
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive:true,
+                maintainAspectRatio: false,
+                
+                tooltips: {
+            callbacks: {
+                label: function(tooltipItems, data) {
+                    return data.datasets[tooltipItems.datasetIndex].label +': ' + tooltipItems.yLabel + '%';
+                }
+            }
+
+        },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                        },
+                        gridLines:{
+                        display:false
+                        },
+                        scaleLabel: {
+                        display: true,
+                        labelString: 'SUBJECTLIST',
+                        fontColor:'brown'
+                        },
+                        fontColor:'black',
+
+                    }],
+                    yAxes: [{
+                        ticks:{
+                            max:100,
+                            beginAtZero:true,
+                            steps:1,
+                            stepValue:1,
+                            fontFamily: "Arial",
+                            fontColor:'black'
+                        },
+                        gridLines:{
+                            display:false
+                        },
+                        scaleLabel: {
+                        display: true,
+                        // labelString: 'ATTENDANCE%',
+                        fontFamily: "Arial",
+                        fontSize:15,
+                        fontColor:'black'
+      }
+                    }]
+                }
+            }
+        });
+//         setTimeout(function() {
+//   myChart.options.scales = {
+//     xAxes: [],
+//     yAxes: [
+//       {
+//         ticks: {
+//           beginAtZero: false
+//         }
+//       }
+//     ]
+//   };
+//   myChart.update();
+// }, 1000);
+
+    </script>
+</body>
+
+</html>

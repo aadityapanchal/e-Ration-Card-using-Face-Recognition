@@ -1,0 +1,29 @@
+<!-- <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT1lQz_jBlEIFHDOD0_6OjLEV3G1yQ5ADWZk5S6LDlNUi7NaebiX1kWXc9UXcoWTE5GSXnGXARNjQp9/pubhtml?gid=1003552453&amp;single=true&amp;widget=true&amp;headers=false"></iframe> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<form method="POST" action="/exporttocsv">
+<select placeholder="Select Subject" name="subjectname">
+  <!--  {{#each user.subjectList}}
+    <option>{{this}}</option>
+    {{/each}} -->
+
+               {{#each attenders.subjectList}}
+    <option>{{this}}</option>
+    {{/each}}
+</select>
+ <button>Select Subject</button>
+</form>
+{{absent}}
+
+{{present}}
+<!-- {{class}}
+{{user}}
+{{User}} -->
+</body>
+</html>
