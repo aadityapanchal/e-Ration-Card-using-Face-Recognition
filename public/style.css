@@ -1,0 +1,12 @@
+[b1], .b1 { border: 1px dashed red; }
+
+.list__tile {
+    height: auto;
+    min-height: 48px;
+}
+
+.list__tile__title {
+    white-space: normal !important;
+    text-overflow: wrap !important;
+    word-wrap: break-word;
+}
